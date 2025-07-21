@@ -387,10 +387,10 @@ export default function PrivacyPage() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">9.1. 광고 식별자 사용</h4>
                   <ul className="list-disc list-inside text-gray-700 space-y-1">
-                    <li>앱은 개인화된 광고 제공을 위해 기기의 광고 식별자를 사용합니다</li>
-                    <li>사용자는 기기 설정에서 광고 식별자를 재설정하거나 개인화된 광고를 거부할 수 있습니다</li>
-                    <li><strong>Android:</strong> 설정 > Google > 광고 > 광고 맞춤설정 재설정</li>
-                    <li><strong>iOS:</strong> 설정 > 개인정보 보호 및 보안 > Apple 광고 > 개인화된 광고</li>
+                    <li>앱은 개인화된 광고 제공을 위해 기기의 광고 식별자를 사용합니다.</li>
+                    <li>사용자는 기기 설정에서 광고 식별자를 재설정하거나 개인화된 광고를 거부할 수 있습니다.</li>
+                    <li><strong>Android:</strong> 설정 &gt; Google &gt; 광고 &gt; 광고 맞춤설정 재설정</li>
+                    <li><strong>iOS:</strong> 설정 &gt; 개인정보 보호 및 보안 &gt; Apple 광고 &gt; 개인화된 광고</li>
                   </ul>
                 </div>
 
