@@ -34,7 +34,7 @@ export default function LinknnotePage() {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
                     <Globe className="h-4 w-4 mr-2" />
-                    <span className="hidden sm:inline">한국어</span>
+                    <span className="hidden sm:inline">English</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -80,9 +80,9 @@ export default function LinknnotePage() {
             <span className="text-purple-600">Linknote</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            스마트한 링크 관리와 노트 작성이 하나로. 
+            Smart link management and note-taking in one place. 
             <br />
-            당신의 디지털 라이프를 더욱 체계적으로 만들어보세요.
+            Make your digital life more organized than ever.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -90,7 +90,7 @@ export default function LinknnotePage() {
               className="bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <Download className="mr-2 h-4 w-4" />
-              App Store에서 다운로드
+              Download on App Store
             </Button>
             <Button
               size="lg"
@@ -98,7 +98,7 @@ export default function LinknnotePage() {
               className="bg-white/80 backdrop-blur-sm hover:bg-white"
             >
               <Download className="mr-2 h-4 w-4" />
-              Google Play에서 다운로드
+              Get it on Google Play
             </Button>
           </div>
         </div>
@@ -108,9 +108,9 @@ export default function LinknnotePage() {
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">주요 기능</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Key Features</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              링크 저장부터 노트 작성까지, 하나의 앱으로 모든 것을 관리하세요.
+              From saving links to taking notes, manage everything with one app.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -119,15 +119,15 @@ export default function LinknnotePage() {
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <LinkIcon className="h-6 w-6 text-purple-600" />
                 </div>
-                <CardTitle>스마트 링크 관리</CardTitle>
-                <CardDescription>중요한 링크들을 카테고리별로 체계적으로 관리</CardDescription>
+                <CardTitle>Smart Link Management</CardTitle>
+                <CardDescription>Organize important links systematically by categories</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• 자동 링크 미리보기</li>
-                  <li>• 태그 기반 분류</li>
-                  <li>• 즐겨찾기 기능</li>
-                  <li>• 검색 및 필터</li>
+                  <li>• Automatic link preview</li>
+                  <li>• Tag-based categorization</li>
+                  <li>• Favorites feature</li>
+                  <li>• Search and filter</li>
                 </ul>
               </CardContent>
             </Card>
@@ -137,15 +137,15 @@ export default function LinknnotePage() {
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <BookOpen className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle>통합 노트 시스템</CardTitle>
-                <CardDescription>링크와 함께 저장되는 개인 메모 기능</CardDescription>
+                <CardTitle>Integrated Note System</CardTitle>
+                <CardDescription>Personal memo feature saved together with links</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• 마크다운 지원</li>
-                  <li>• 이미지 첨부</li>
-                  <li>• 체크리스트 생성</li>
-                  <li>• 실시간 동기화</li>
+                  <li>• Markdown support</li>
+                  <li>• Image attachments</li>
+                  <li>• Checklist creation</li>
+                  <li>• Real-time sync</li>
                 </ul>
               </CardContent>
             </Card>
@@ -155,15 +155,15 @@ export default function LinknnotePage() {
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Share2 className="h-6 w-6 text-green-600" />
                 </div>
-                <CardTitle>간편한 공유</CardTitle>
-                <CardDescription>중요한 컨텐츠를 친구들과 쉽게 공유</CardDescription>
+                <CardTitle>Easy Sharing</CardTitle>
+                <CardDescription>Share important content with friends easily</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="text-sm text-gray-600 space-y-2">
-                  <li>• 원클릭 공유</li>
-                  <li>• 소셜 미디어 연동</li>
-                  <li>• 공유 링크 생성</li>
-                  <li>• 권한 관리</li>
+                  <li>• One-click sharing</li>
+                  <li>• Social media integration</li>
+                  <li>• Share link generation</li>
+                  <li>• Permission management</li>
                 </ul>
               </CardContent>
             </Card>
@@ -177,18 +177,18 @@ export default function LinknnotePage() {
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">10K+</div>
-              <div className="text-gray-600">다운로드</div>
+              <div className="text-gray-600">Downloads</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">4.8</div>
               <div className="text-gray-600 flex items-center justify-center">
                 <Star className="h-4 w-4 text-yellow-400 mr-1" />
-                앱 스토어 평점
+                App Store Rating
               </div>
             </div>
             <div>
               <div className="text-3xl font-bold text-purple-600 mb-2">5K+</div>
-              <div className="text-gray-600">활성 사용자</div>
+              <div className="text-gray-600">Active Users</div>
             </div>
           </div>
         </div>
@@ -198,30 +198,30 @@ export default function LinknnotePage() {
       <section className="py-16 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">사용 방법</h2>
-            <p className="text-gray-600">3단계로 시작하는 스마트한 링크 관리</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
+            <p className="text-gray-600">Start smart link management in 3 simple steps</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-purple-600">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">링크 저장</h3>
-              <p className="text-gray-600">브라우저나 다른 앱에서 공유 기능을 통해 링크를 간단히 저장하세요.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Save Links</h3>
+              <p className="text-gray-600">Simply save links from browsers or other apps using the share feature.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-purple-600">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">노트 작성</h3>
-              <p className="text-gray-600">저장한 링크에 개인적인 메모와 생각을 추가해보세요.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Take Notes</h3>
+              <p className="text-gray-600">Add personal memos and thoughts to your saved links.</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-purple-600">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">체계적 관리</h3>
-              <p className="text-gray-600">태그와 카테고리를 활용해 컨텐츠를 체계적으로 정리하세요.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Organize Systematically</h3>
+              <p className="text-gray-600">Use tags and categories to organize your content systematically.</p>
             </div>
           </div>
         </div>
@@ -230,9 +230,9 @@ export default function LinknnotePage() {
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-purple-600 to-blue-600">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">지금 바로 시작해보세요!</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Start Now!</h2>
           <p className="text-purple-100 mb-8 max-w-2xl mx-auto">
-            무료로 다운로드하고 더 스마트한 정보 관리 경험을 시작하세요.
+            Download for free and start your smarter information management experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
@@ -240,7 +240,7 @@ export default function LinknnotePage() {
               className="bg-white text-purple-600 hover:bg-gray-100"
             >
               <Download className="mr-2 h-4 w-4" />
-              무료 다운로드
+              Free Download
             </Button>
           </div>
         </div>
@@ -258,11 +258,11 @@ export default function LinknnotePage() {
                 <span className="font-semibold">Linknote</span>
               </div>
               <p className="text-sm text-gray-400">
-                스마트한 링크 관리와 노트 작성 앱
+                Smart link management and note-taking app
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">앱 다운로드</h4>
+              <h4 className="font-semibold mb-4">Download App</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
                   <a href="#" className="hover:text-white transition-colors flex items-center">
@@ -279,32 +279,32 @@ export default function LinknnotePage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">지원</h4>
+              <h4 className="font-semibold mb-4">Support</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">고객 지원</a>
+                  <a href="#" className="hover:text-white transition-colors">Customer Support</a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">FAQ</a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">사용자 가이드</a>
+                  <a href="#" className="hover:text-white transition-colors">User Guide</a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">법적 고지</h4>
+              <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <Link href="/linknote/privacy" className="hover:text-white transition-colors flex items-center">
+                  <Link href="/linknote/en/privacy" className="hover:text-white transition-colors flex items-center">
                     <Shield className="h-4 w-4 mr-2" />
-                    개인정보처리방침
+                    Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/linknote/terms" className="hover:text-white transition-colors flex items-center">
+                  <Link href="/linknote/en/terms" className="hover:text-white transition-colors flex items-center">
                     <Users className="h-4 w-4 mr-2" />
-                    이용약관
+                    Terms of Service
                   </Link>
                 </li>
               </ul>
@@ -312,14 +312,14 @@ export default function LinknnotePage() {
           </div>
           <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
             <div className="text-sm text-gray-400 mb-4 md:mb-0">
-              <p>© 2024 크리에이아이터 (Creaitor). All rights reserved.</p>
+              <p>© 2024 Creaitor. All rights reserved.</p>
             </div>
             <div className="text-sm text-gray-400">
               <a
                 href="mailto:jun.says.maktub@gmail.com"
                 className="hover:text-white transition-colors"
               >
-                문의: jun.says.maktub@gmail.com
+                Contact: jun.says.maktub@gmail.com
               </a>
             </div>
           </div>
