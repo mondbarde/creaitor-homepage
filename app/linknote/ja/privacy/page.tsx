@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail, Globe } from "lucide-react"
 import Link from "next/link"
 
 export default function PrivacyPage() {
@@ -16,10 +17,40 @@ export default function PrivacyPage() {
               </div>
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </Link>
-            <Link href="/linknote/ja" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              <span>Linknoteに戻る</span>
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link href="/linknote/ja" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Linknoteに戻る</span>
+              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                    <Globe className="h-4 w-4 mr-2" />
+                    <span className="hidden sm:inline">日本語</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/privacy" className="flex items-center">
+                      <span className="mr-2">🇰🇷</span>
+                      한국어
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/en/privacy" className="flex items-center">
+                      <span className="mr-2">🇺🇸</span>
+                      English
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/privacy" className="flex items-center">
+                      <span className="mr-2">🇯🇵</span>
+                      日本語
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>
@@ -377,7 +408,75 @@ export default function PrivacyPage() {
             </CardContent>
           </Card>
 
-          {/* お問い合わせ先 */}
+          {/* 9. 個人情報自動収集装置の設置・運営及び拒否 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>9. 個人情報自動収集装置の設置・運営及び拒否</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">9.1. 広告識別子の使用</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>アプリはパーソナライズ広告提供のため、デバイスの広告識別子を使用します。</li>
+                    <li>ユーザーはデバイス設定で広告識別子をリセットしたり、パーソナライズ広告を拒否することができます。</li>
+                    <li><strong>Android:</strong> 設定 &gt; Google &gt; 広告 &gt; 広告のカスタマイズをリセット</li>
+                    <li><strong>iOS:</strong> 設定 &gt; プライバシーとセキュリティ &gt; Apple広告 &gt; パーソナライズ広告</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">9.2. アプリ権限管理</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li><strong>ネットワークアクセス:</strong> サービス提供のための必須権限</li>
+                    <li><strong>外部アプリ連携:</strong> 他のアプリからリンク共有時に使用</li>
+                    <li><strong>通知権限:</strong> リマインダーおよび重要通知送信（選択権限）</li>
+                    <li>ユーザーはデバイス設定でいつでも権限を変更できます</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 mb-2">9.3. AIサービス利用案内</h4>
+                  <ul className="list-disc list-inside text-gray-700 space-y-1">
+                    <li>リンク要約機能はユーザーが明示的にリクエストした場合のみ作動します</li>
+                    <li>AI処理時、個人情報が含まれたリンクは自動的にフィルタリングされます</li>
+                    <li>生成された要約はサービス品質向上のため匿名化されて分析される場合があります</li>
+                    <li>AI要約機能は設定で非活性化できます</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* 10. 児童の個人情報保護 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>10. 児童の個人情報保護</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <li>リンクノートは満14歳未満の児童の個人情報を収集しません</li>
+                <li>満14歳未満の児童が個人情報を提供したことが確認された場合、直ちに該当情報を削除します</li>
+                <li>満14歳未満の児童の個人情報収集が確認された場合、support@linknote.my までご連絡ください</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* 11. プライバシーポリシーの変更 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>11. プライバシーポリシーの変更</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
+                <li>このプライバシーポリシーは施行日から適用されます</li>
+                <li>法令および方針による変更内容の追加、削除および訂正がある場合には、変更事項の施行7日前からアプリ内お知らせを通じて告知します</li>
+                <li>ただし、収集する個人情報の項目、利用目的の変更等のようにユーザー権利の重要な変更がある場合には最低30日前に告知します</li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          {/* 12. お問い合わせ先 */}
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
@@ -399,6 +498,36 @@ export default function PrivacyPage() {
                 </div>
                 
                 <p className="text-gray-700 text-sm">情報主体の皆様は、リンクノートのサービスを利用されて発生したすべての個人情報保護関連のお問い合わせ、苦情処理、被害救済などに関する事項を個人情報保護責任者までお問い合わせいただけます。リンクノートは情報主体のお問い合わせに対して遅滞なく回答・処理いたします。</p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* 13. 権益侵害救済方法 */}
+          <Card>
+            <CardHeader>
+              <CardTitle>13. 権益侵害救済方法</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <p className="text-gray-700">個人情報主体は個人情報侵害による救済を受けるために、個人情報紛争調停委員会、個人情報保護委員会などに紛争解決や相談等を申請することができます：</p>
+                
+                <ul className="list-disc list-inside text-gray-700 space-y-1">
+                  <li><strong>個人情報紛争調停委員会：</strong> （市外局番なし）1833-6972 (privacy.go.kr)</li>
+                  <li><strong>個人情報保護総合支援ポータル：</strong> privacy.go.kr</li>
+                  <li><strong>大検察庁：</strong> （市外局番なし）1301 (www.spo.go.kr)</li>
+                  <li><strong>警察庁：</strong> （市外局番なし）182 (ecrm.cyber.go.kr)</li>
+                </ul>
+
+                <div className="bg-gray-50 p-4 rounded-lg mt-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">お問い合わせ先</h4>
+                  <p className="text-gray-700 text-sm mb-2">個人情報処理に関するお問い合わせがございましたら、下記までご連絡ください。</p>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li><strong>メール：</strong> support@linknote.my</li>
+                    <li><strong>アプリ名：</strong> リンクノート（Linknote）</li>
+                    <li><strong>開発者：</strong> 林 俊燮（イム・ジュンソプ）</li>
+                    <li><strong>パッケージ名：</strong> com.creaitor.linknote</li>
+                  </ul>
+                </div>
               </div>
             </CardContent>
           </Card>

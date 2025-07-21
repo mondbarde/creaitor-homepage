@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail, Globe } from "lucide-react"
 import Link from "next/link"
 
 export default function PrivacyPage() {
@@ -16,10 +17,40 @@ export default function PrivacyPage() {
               </div>
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </Link>
-            <Link href="/linknote/en" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
-              <ArrowLeft className="h-4 w-4" />
-              <span>Back to Linknote</span>
-            </Link>
+            <div className="flex items-center space-x-4">
+              <Link href="/linknote/en" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
+                <ArrowLeft className="h-4 w-4" />
+                <span className="hidden sm:inline">Back to Linknote</span>
+              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                    <Globe className="h-4 w-4 mr-2" />
+                    <span className="hidden sm:inline">English</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/privacy" className="flex items-center">
+                      <span className="mr-2">🇰🇷</span>
+                      한국어
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/en/privacy" className="flex items-center">
+                      <span className="mr-2">🇺🇸</span>
+                      English
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/privacy" className="flex items-center">
+                      <span className="mr-2">🇯🇵</span>
+                      日本語
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>
