@@ -512,10 +512,10 @@ export default function PrivacyPage() {
                 <p className="text-gray-700">Data subjects can apply for dispute resolution or consultation to the Personal Information Dispute Mediation Committee, Personal Information Protection Commission, etc. to receive relief for personal information violations:</p>
                 
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
-                  <li><strong>Personal Information Dispute Mediation Committee:</strong> (no area code) 1833-6972 (privacy.go.kr)</li>
+                  <li><strong>Personal Information Dispute Mediation Committee:</strong> +82-1833-6972 (Korea, no area code needed domestically) privacy.go.kr</li>
                   <li><strong>Personal Information Protection Comprehensive Support Portal:</strong> privacy.go.kr</li>
-                  <li><strong>Supreme Prosecutors' Office:</strong> (no area code) 1301 (www.spo.go.kr)</li>
-                  <li><strong>National Police Agency:</strong> (no area code) 182 (ecrm.cyber.go.kr)</li>
+                  <li><strong>Supreme Prosecutors' Office:</strong> +82-1301 (Korea, no area code needed domestically) www.spo.go.kr</li>
+                  <li><strong>National Police Agency:</strong> +82-182 (Korea, no area code needed domestically) ecrm.cyber.go.kr</li>
                 </ul>
 
                 <div className="bg-gray-50 p-4 rounded-lg mt-4">

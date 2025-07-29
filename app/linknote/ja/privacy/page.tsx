@@ -512,10 +512,10 @@ export default function PrivacyPage() {
                 <p className="text-gray-700">個人情報主体は個人情報侵害による救済を受けるために、個人情報紛争調停委員会、個人情報保護委員会などに紛争解決や相談等を申請することができます：</p>
                 
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
-                  <li><strong>個人情報紛争調停委員会：</strong> （市外局番なし）1833-6972 (privacy.go.kr)</li>
+                  <li><strong>個人情報紛争調停委員会：</strong> +82-1833-6972（韓国、国内では市外局番不要） privacy.go.kr</li>
                   <li><strong>個人情報保護総合支援ポータル：</strong> privacy.go.kr</li>
-                  <li><strong>大検察庁：</strong> （市外局番なし）1301 (www.spo.go.kr)</li>
-                  <li><strong>警察庁：</strong> （市外局番なし）182 (ecrm.cyber.go.kr)</li>
+                  <li><strong>大検察庁：</strong> +82-1301（韓国、国内では市外局番不要） www.spo.go.kr</li>
+                  <li><strong>警察庁：</strong> +82-182（韓国、国内では市外局番不要） ecrm.cyber.go.kr</li>
                 </ul>
 
                 <div className="bg-gray-50 p-4 rounded-lg mt-4">
@@ -524,7 +524,7 @@ export default function PrivacyPage() {
                   <ul className="text-sm text-gray-700 space-y-1">
                     <li><strong>メール：</strong> support@linknote.my</li>
                     <li><strong>アプリ名：</strong> リンクノート（Linknote）</li>
-                    <li><strong>開発者：</strong> 林 俊燮（イム・ジュンソプ）</li>
+                    <li><strong>開発者：</strong> 林 俊燮（イム・ジュンソップ）</li>
                     <li><strong>パッケージ名：</strong> com.creaitor.linknote</li>
                   </ul>
                 </div>
