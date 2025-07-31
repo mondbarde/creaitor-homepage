@@ -18,7 +18,7 @@ export default function HomePage() {
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </div>
             <div className="flex items-center space-x-4">
-              <nav className="hidden md:flex space-x-6">
+              <nav className="hidden lg:flex space-x-6">
                 <a
                   href="/linknote"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -37,10 +37,10 @@ export default function HomePage() {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="outline" 
-                    size="sm" 
-                    className="md:hidden border-gray-300 hover:bg-gray-50"
+                    size="default" 
+                    className="bg-white border-2 border-red-500 hover:bg-red-50 p-3 min-w-[44px] min-h-[44px]"
                   >
-                    <Menu className="h-5 w-5 text-gray-700" />
+                    <Menu className="h-6 w-6 text-gray-800" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

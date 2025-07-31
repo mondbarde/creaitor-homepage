@@ -63,10 +63,10 @@ export default function LinknnotePage() {
                 <DropdownMenuTrigger asChild>
                   <Button 
                     variant="outline" 
-                    size="sm" 
-                    className="md:hidden border-gray-300 hover:bg-gray-50"
+                    size="default" 
+                    className="block lg:hidden bg-white border-2 border-gray-400 hover:bg-gray-100 p-2"
                   >
-                    <Menu className="h-5 w-5 text-gray-700" />
+                    <Menu className="h-6 w-6 text-gray-800" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
