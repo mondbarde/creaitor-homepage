@@ -1,16 +1,20 @@
-// Server component - no client needed
+'use client'
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw, Menu, Users } from "lucide-react"
+import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw, Menu, Users, Copy, Check, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 export default function AccountDeletionPage() {
-  const emailSubject = encodeURIComponent("[LinKnote] Account Deletion Request")
-  const emailBody = encodeURIComponent(`Hello,
+  const [showEmailContent, setShowEmailContent] = useState(false)
+  const [copied, setCopied] = useState(false)
+  
+  const emailSubject = "[LinKnote] Account Deletion Request"
+  const emailBody = `Hello,
 
 I would like to request the deletion of my LinKnote account.
 
@@ -20,9 +24,35 @@ Account Information:
 
 I would like to receive guidance on the deletion process.
 
-Thank you.`)
+Thank you.`
   
-  const emailLink = `mailto:support@linknote.my?subject=${emailSubject}&body=${emailBody}`
+  const emailLink = `mailto:support@linknote.my?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+
+  const handleEmailClick = () => {
+    // Try mailto link
+    window.location.href = emailLink
+    
+    // Show alternative after 2 seconds if email client doesn't open
+    setTimeout(() => {
+      setShowEmailContent(true)
+    }, 2000)
+  }
+
+  const copyEmailContent = async () => {
+    const fullEmailContent = `To: support@linknote.my
+Subject: ${emailSubject}
+
+${emailBody}`
+    
+    try {
+      await navigator.clipboard.writeText(fullEmailContent)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      // Fallback if clipboard access fails
+      alert('Please manually copy the email content.')
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
@@ -283,20 +313,87 @@ Thank you.`)
               </ul>
             </div>
             
-            <a 
-              href={emailLink}
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-11 rounded-md px-8 w-full bg-red-600 hover:bg-red-700 text-white"
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              Send Account Deletion Request Email
-            </a>
-            
-            <p className="text-sm text-gray-500 mt-4 text-center">
-              If your email client doesn't open, please contact us directly at
-              <a href="mailto:support@linknote.my" className="text-blue-600 hover:underline ml-1">
-                support@linknote.my
-              </a>.
-            </p>
+            <div className="space-y-4">
+              <Button 
+                onClick={handleEmailClick}
+                className="w-full bg-red-600 hover:bg-red-700 text-white h-11"
+                size="lg"
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                Send Account Deletion Request Email
+              </Button>
+              
+              {showEmailContent && (
+                <div className="border border-orange-200 bg-orange-50 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-medium text-orange-900">Email not opening?</h4>
+                    <Button
+                      onClick={() => setShowEmailContent(false)}
+                      variant="ghost"
+                      size="sm"
+                      className="text-orange-700 hover:text-orange-900"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+                  <p className="text-sm text-orange-800 mb-4">
+                    Please copy the content below and send it via email directly.
+                  </p>
+                  
+                  <div className="bg-white rounded border p-3 text-sm">
+                    <div className="mb-2">
+                      <strong>To:</strong> support@linknote.my
+                    </div>
+                    <div className="mb-2">
+                      <strong>Subject:</strong> {emailSubject}
+                    </div>
+                    <div className="mb-3">
+                      <strong>Content:</strong>
+                    </div>
+                    <div className="whitespace-pre-line text-gray-700 border-l-2 border-gray-300 pl-3">
+                      {emailBody}
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-2 mt-4">
+                    <Button
+                      onClick={copyEmailContent}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="h-4 w-4 text-green-600" />
+                          Copied!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-4 w-4" />
+                          Copy All Content
+                        </>
+                      )}
+                    </Button>
+                    <Button
+                      onClick={() => window.open('https://mail.google.com/mail/u/0/#inbox?compose=new', '_blank')}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Open Gmail
+                    </Button>
+                  </div>
+                </div>
+              )}
+              
+              <p className="text-sm text-gray-500 text-center">
+                If problems persist, please contact us directly at
+                <a href="mailto:support@linknote.my" className="text-blue-600 hover:underline ml-1">
+                  support@linknote.my
+                </a>.
+              </p>
+            </div>
           </CardContent>
         </Card>
 

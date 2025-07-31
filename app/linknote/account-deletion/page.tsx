@@ -1,16 +1,20 @@
 'use client'
 
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw, Menu, Users } from "lucide-react"
+import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw, Menu, Users, Copy, Check, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 export default function AccountDeletionPage() {
-  const emailSubject = encodeURIComponent("[LinKnote] 계정 삭제 요청")
-  const emailBody = encodeURIComponent(`안녕하세요,
+  const [showEmailContent, setShowEmailContent] = useState(false)
+  const [copied, setCopied] = useState(false)
+  
+  const emailSubject = "[LinKnote] 계정 삭제 요청"
+  const emailBody = `안녕하세요,
 
 LinKnote 계정 삭제를 요청합니다.
 
@@ -20,9 +24,35 @@ LinKnote 계정 삭제를 요청합니다.
 
 삭제 절차에 대한 안내를 받고 싶습니다.
 
-감사합니다.`)
+감사합니다.`
   
-  const emailLink = `mailto:support@linknote.my?subject=${emailSubject}&body=${emailBody}`
+  const emailLink = `mailto:support@linknote.my?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`
+
+  const handleEmailClick = () => {
+    // mailto 링크 시도
+    window.location.href = emailLink
+    
+    // 2초 후 이메일 클라이언트가 열리지 않았을 가능성을 고려하여 대안 제시
+    setTimeout(() => {
+      setShowEmailContent(true)
+    }, 2000)
+  }
+
+  const copyEmailContent = async () => {
+    const fullEmailContent = `받는 사람: support@linknote.my
+제목: ${emailSubject}
+
+${emailBody}`
+    
+    try {
+      await navigator.clipboard.writeText(fullEmailContent)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch (err) {
+      // 클립보드 접근 실패 시 대안
+      alert('이메일 내용을 수동으로 복사해주세요.')
+    }
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
@@ -283,20 +313,87 @@ LinKnote 계정 삭제를 요청합니다.
               </ul>
             </div>
             
-            <a 
-              href={emailLink}
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-11 rounded-md px-8 w-full bg-red-600 hover:bg-red-700 text-white"
-            >
-              <Mail className="mr-2 h-4 w-4" />
-              계정 삭제 요청 이메일 보내기
-            </a>
-            
-            <p className="text-sm text-gray-500 mt-4 text-center">
-              이메일 클라이언트가 열리지 않는 경우, 
-              <a href="mailto:support@linknote.my" className="text-blue-600 hover:underline ml-1">
-                support@linknote.my
-              </a>로 직접 연락해주세요.
-            </p>
+            <div className="space-y-4">
+              <Button 
+                onClick={handleEmailClick}
+                className="w-full bg-red-600 hover:bg-red-700 text-white h-11"
+                size="lg"
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                계정 삭제 요청 이메일 보내기
+              </Button>
+              
+              {showEmailContent && (
+                <div className="border border-orange-200 bg-orange-50 rounded-lg p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-medium text-orange-900">이메일이 열리지 않나요?</h4>
+                    <Button
+                      onClick={() => setShowEmailContent(false)}
+                      variant="ghost"
+                      size="sm"
+                      className="text-orange-700 hover:text-orange-900"
+                    >
+                      ✕
+                    </Button>
+                  </div>
+                  <p className="text-sm text-orange-800 mb-4">
+                    아래 내용을 복사해서 이메일로 직접 보내주세요.
+                  </p>
+                  
+                  <div className="bg-white rounded border p-3 text-sm">
+                    <div className="mb-2">
+                      <strong>받는 사람:</strong> support@linknote.my
+                    </div>
+                    <div className="mb-2">
+                      <strong>제목:</strong> {emailSubject}
+                    </div>
+                    <div className="mb-3">
+                      <strong>내용:</strong>
+                    </div>
+                    <div className="whitespace-pre-line text-gray-700 border-l-2 border-gray-300 pl-3">
+                      {emailBody}
+                    </div>
+                  </div>
+                  
+                  <div className="flex gap-2 mt-4">
+                    <Button
+                      onClick={copyEmailContent}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="h-4 w-4 text-green-600" />
+                          복사됨!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-4 w-4" />
+                          전체 내용 복사
+                        </>
+                      )}
+                    </Button>
+                    <Button
+                      onClick={() => window.open('https://mail.google.com/mail/u/0/#inbox?compose=new', '_blank')}
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2"
+                    >
+                      <ExternalLink className="h-4 w-4" />
+                      Gmail로 보내기
+                    </Button>
+                  </div>
+                </div>
+              )}
+              
+              <p className="text-sm text-gray-500 text-center">
+                문제가 지속되면 
+                <a href="mailto:support@linknote.my" className="text-blue-600 hover:underline ml-1">
+                  support@linknote.my
+                </a>로 직접 연락해주세요.
+              </p>
+            </div>
           </CardContent>
         </Card>
 
