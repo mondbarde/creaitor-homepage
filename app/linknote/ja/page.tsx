@@ -307,6 +307,11 @@ export default function LinknnotePage() {
                     利用規約
                   </Link>
                 </li>
+                <li>
+                  <Link href="/linknote/ja/account-deletion" className="hover:text-white transition-colors">
+                    アカウント削除リクエスト
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
