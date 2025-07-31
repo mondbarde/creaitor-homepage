@@ -81,8 +81,12 @@ LinKnote 계정 삭제를 요청합니다.
               {/* Mobile Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="md:hidden">
-                    <Menu className="h-5 w-5" />
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="md:hidden border-gray-300 hover:bg-gray-50"
+                  >
+                    <Menu className="h-5 w-5 text-gray-700" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">

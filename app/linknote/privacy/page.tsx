@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail, Globe } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
+import { ArrowLeft, Shield, Eye, Lock, Trash2, Mail, Globe, Menu, Users } from "lucide-react"
 import Link from "next/link"
 
 export default function PrivacyPage() {
@@ -18,13 +18,13 @@ export default function PrivacyPage() {
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </Link>
             <div className="flex items-center space-x-4">
-              <Link href="/linknote" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors">
+              <Link href="/linknote" className="flex items-center space-x-2 text-gray-600 hover:text-purple-600 transition-colors hidden md:flex">
                 <ArrowLeft className="h-4 w-4" />
                 <span className="hidden sm:inline">Linknote로 돌아가기</span>
               </Link>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden sm:flex">
                     <Globe className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">한국어</span>
                   </Button>
@@ -44,6 +44,62 @@ export default function PrivacyPage() {
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/linknote/ja/privacy" className="flex items-center">
+                      <span className="mr-2">🇯🇵</span>
+                      日本語
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              {/* Mobile Menu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="md:hidden border-gray-300 hover:bg-gray-50"
+                  >
+                    <Menu className="h-5 w-5 text-gray-700" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link href="/" className="flex items-center w-full">
+                      Home
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote" className="flex items-center w-full">
+                      <ArrowLeft className="h-4 w-4 mr-2" />
+                      Linknote로 돌아가기
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/terms" className="flex items-center w-full">
+                      <Users className="h-4 w-4 mr-2" />
+                      이용약관
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/account-deletion" className="flex items-center w-full">
+                      계정 삭제 요청
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/privacy" className="flex items-center w-full">
+                      <span className="mr-2">🇰🇷</span>
+                      한국어
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/en/privacy" className="flex items-center w-full">
+                      <span className="mr-2">🇺🇸</span>
+                      English
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/privacy" className="flex items-center w-full">
                       <span className="mr-2">🇯🇵</span>
                       日本語
                     </Link>
