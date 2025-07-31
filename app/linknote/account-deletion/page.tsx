@@ -1,9 +1,11 @@
+'use client'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw } from "lucide-react"
+import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, RefreshCw, Menu, Users } from "lucide-react"
 import Link from "next/link"
 
 export default function AccountDeletionPage() {
@@ -50,7 +52,7 @@ LinKnote 계정 삭제를 요청합니다.
               </nav>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden sm:flex">
                     <Globe className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">한국어</span>
                   </Button>
@@ -70,6 +72,63 @@ LinKnote 계정 삭제를 요청합니다.
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/linknote/ja/account-deletion" className="flex items-center">
+                      <span className="mr-2">🇯🇵</span>
+                      日本語
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              {/* Mobile Menu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link href="/" className="flex items-center w-full">
+                      Home
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="mailto:jun.says.maktub@gmail.com" className="flex items-center w-full">
+                      Contact
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote" className="flex items-center w-full">
+                      Linknote 홈
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/privacy" className="flex items-center w-full">
+                      <Shield className="h-4 w-4 mr-2" />
+                      개인정보처리방침
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/terms" className="flex items-center w-full">
+                      <Users className="h-4 w-4 mr-2" />
+                      이용약관
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/account-deletion" className="flex items-center w-full">
+                      <span className="mr-2">🇰🇷</span>
+                      한국어
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/en/account-deletion" className="flex items-center w-full">
+                      <span className="mr-2">🇺🇸</span>
+                      English
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/account-deletion" className="flex items-center w-full">
                       <span className="mr-2">🇯🇵</span>
                       日本語
                     </Link>
