@@ -9,9 +9,8 @@ import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, Refresh
 import Link from "next/link"
 
 export default function AccountDeletionPage() {
-  const handleSendEmail = () => {
-    const subject = encodeURIComponent("[LinKnote] 계정 삭제 요청")
-    const body = encodeURIComponent(`안녕하세요,
+  const emailSubject = encodeURIComponent("[LinKnote] 계정 삭제 요청")
+  const emailBody = encodeURIComponent(`안녕하세요,
 
 LinKnote 계정 삭제를 요청합니다.
 
@@ -22,9 +21,8 @@ LinKnote 계정 삭제를 요청합니다.
 삭제 절차에 대한 안내를 받고 싶습니다.
 
 감사합니다.`)
-    
-    window.location.href = `mailto:support@linknote.my?subject=${subject}&body=${body}`
-  }
+  
+  const emailLink = `mailto:support@linknote.my?subject=${emailSubject}&body=${emailBody}`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
@@ -50,11 +48,12 @@ LinKnote 계정 삭제를 요청합니다.
                   Contact
                 </a>
               </nav>
+              {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden md:flex">
-                    <Globe className="h-4 w-4 mr-2" />
-                    <span className="hidden sm:inline">한국어</span>
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                    <Globe className="h-4 w-4" />
+                    <span className="hidden sm:inline ml-2">한국어</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -114,25 +113,7 @@ LinKnote 계정 삭제를 요청합니다.
                       이용약관
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇰🇷</span>
-                      한국어
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/en/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇺🇸</span>
-                      English
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/ja/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇯🇵</span>
-                      日本語
-                    </Link>
-                  </DropdownMenuItem>
+
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -302,14 +283,13 @@ LinKnote 계정 삭제를 요청합니다.
               </ul>
             </div>
             
-            <Button 
-              onClick={handleSendEmail}
-              size="lg" 
-              className="w-full bg-red-600 hover:bg-red-700 text-white"
+            <a 
+              href={emailLink}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-11 rounded-md px-8 w-full bg-red-600 hover:bg-red-700 text-white"
             >
               <Mail className="mr-2 h-4 w-4" />
               계정 삭제 요청 이메일 보내기
-            </Button>
+            </a>
             
             <p className="text-sm text-gray-500 mt-4 text-center">
               이메일 클라이언트가 열리지 않는 경우, 

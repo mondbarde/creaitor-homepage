@@ -94,25 +94,7 @@ export default function LinknnotePage() {
                       アカウント削除
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote" className="flex items-center w-full">
-                      <span className="mr-2">🇰🇷</span>
-                      한국어
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/en" className="flex items-center w-full">
-                      <span className="mr-2">🇺🇸</span>
-                      English
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/ja" className="flex items-center w-full">
-                      <span className="mr-2">🇯🇵</span>
-                      日本語
-                    </Link>
-                  </DropdownMenuItem>
+
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>

@@ -1,4 +1,4 @@
-'use client'
+// Server component - no client needed
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -9,9 +9,8 @@ import { Mail, Shield, Clock, AlertTriangle, Globe, ArrowLeft, FileText, Refresh
 import Link from "next/link"
 
 export default function AccountDeletionPage() {
-  const handleSendEmail = () => {
-    const subject = encodeURIComponent("[LinKnote] Account Deletion Request")
-    const body = encodeURIComponent(`Hello,
+  const emailSubject = encodeURIComponent("[LinKnote] Account Deletion Request")
+  const emailBody = encodeURIComponent(`Hello,
 
 I would like to request the deletion of my LinKnote account.
 
@@ -22,9 +21,8 @@ Account Information:
 I would like to receive guidance on the deletion process.
 
 Thank you.`)
-    
-    window.location.href = `mailto:support@linknote.my?subject=${subject}&body=${body}`
-  }
+  
+  const emailLink = `mailto:support@linknote.my?subject=${emailSubject}&body=${emailBody}`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-purple-50">
@@ -50,11 +48,12 @@ Thank you.`)
                   Contact
                 </a>
               </nav>
+              {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden md:flex">
-                    <Globe className="h-4 w-4 mr-2" />
-                    <span className="hidden sm:inline">English</span>
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                    <Globe className="h-4 w-4" />
+                    <span className="hidden sm:inline ml-2">English</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
@@ -114,25 +113,7 @@ Thank you.`)
                       Terms of Service
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇰🇷</span>
-                      한국어
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/en/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇺🇸</span>
-                      English
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/linknote/ja/account-deletion" className="flex items-center w-full">
-                      <span className="mr-2">🇯🇵</span>
-                      日本語
-                    </Link>
-                  </DropdownMenuItem>
+
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
@@ -302,14 +283,13 @@ Thank you.`)
               </ul>
             </div>
             
-            <Button 
-              onClick={handleSendEmail}
-              size="lg" 
-              className="w-full bg-red-600 hover:bg-red-700 text-white"
+            <a 
+              href={emailLink}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 text-primary-foreground h-11 rounded-md px-8 w-full bg-red-600 hover:bg-red-700 text-white"
             >
               <Mail className="mr-2 h-4 w-4" />
               Send Account Deletion Request Email
-            </Button>
+            </a>
             
             <p className="text-sm text-gray-500 mt-4 text-center">
               If your email client doesn't open, please contact us directly at
