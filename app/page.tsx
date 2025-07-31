@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Mail, Phone, MapPin, Code, Smartphone, Palette, Users } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Mail, Phone, MapPin, Code, Smartphone, Palette, Users, Menu } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -16,20 +17,42 @@ export default function HomePage() {
               </div>
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </div>
-            <nav className="hidden md:flex space-x-6">
-              <a
-                href="/linknote"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Linknote
-              </a>
-              <a
-                href="mailto:jun.says.maktub@gmail.com"
-                className="text-gray-600 hover:text-blue-600 transition-colors"
-              >
-                Contact
-              </a>
-            </nav>
+            <div className="flex items-center space-x-4">
+              <nav className="hidden md:flex space-x-6">
+                <a
+                  href="/linknote"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Linknote
+                </a>
+                <a
+                  href="mailto:jun.says.maktub@gmail.com"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Contact
+                </a>
+              </nav>
+              {/* Mobile Menu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <a href="/linknote" className="flex items-center w-full">
+                      Linknote
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="mailto:jun.says.maktub@gmail.com" className="flex items-center w-full">
+                      Contact
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>

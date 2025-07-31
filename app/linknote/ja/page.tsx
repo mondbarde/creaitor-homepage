@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Download, Star, Share2, BookOpen, Link as LinkIcon, Smartphone, Shield, Users, Globe } from "lucide-react"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
+import { Download, Star, Share2, BookOpen, Link as LinkIcon, Smartphone, Shield, Users, Globe, Menu } from "lucide-react"
 import Link from "next/link"
 
 export default function LinknnotePage() {
@@ -32,7 +32,7 @@ export default function LinknnotePage() {
               </nav>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden sm:flex">
                     <Globe className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">日本語</span>
                   </Button>
@@ -52,6 +52,63 @@ export default function LinknnotePage() {
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="/linknote/ja" className="flex items-center">
+                      <span className="mr-2">🇯🇵</span>
+                      日本語
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              {/* Mobile Menu */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem asChild>
+                    <Link href="/" className="flex items-center w-full">
+                      ホーム
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <a href="mailto:jun.says.maktub@gmail.com" className="flex items-center w-full">
+                      お問い合わせ
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/privacy" className="flex items-center w-full">
+                      <Shield className="h-4 w-4 mr-2" />
+                      プライバシーポリシー
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/terms" className="flex items-center w-full">
+                      <Users className="h-4 w-4 mr-2" />
+                      利用規約
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja/account-deletion" className="flex items-center w-full">
+                      アカウント削除
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote" className="flex items-center w-full">
+                      <span className="mr-2">🇰🇷</span>
+                      한국어
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/en" className="flex items-center w-full">
+                      <span className="mr-2">🇺🇸</span>
+                      English
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/linknote/ja" className="flex items-center w-full">
                       <span className="mr-2">🇯🇵</span>
                       日本語
                     </Link>
