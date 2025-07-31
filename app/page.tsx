@@ -35,12 +35,8 @@ export default function HomePage() {
               {/* Mobile Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="default" 
-                    className="bg-white border-2 border-red-500 hover:bg-red-50 p-3 min-w-[44px] min-h-[44px]"
-                  >
-                    <Menu className="h-6 w-6 text-gray-800" />
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">

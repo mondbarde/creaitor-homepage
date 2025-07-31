@@ -19,7 +19,7 @@ export default function LinknnotePage() {
               <span className="text-xl font-bold text-gray-900">Creaitor</span>
             </Link>
             <div className="flex items-center space-x-4">
-              <nav className="hidden lg:flex items-center space-x-6">
+              <nav className="hidden md:flex items-center space-x-6">
                 <Link href="/" className="text-gray-600 hover:text-blue-600 transition-colors">
                   Home
                 </Link>
@@ -32,7 +32,7 @@ export default function LinknnotePage() {
               </nav>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden lg:flex">
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden md:flex">
                     <Globe className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">한국어</span>
                   </Button>
@@ -60,13 +60,9 @@ export default function LinknnotePage() {
               </DropdownMenu>
               {/* Mobile Menu */}
               <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="default" 
-                    className="block lg:hidden bg-white border-2 border-gray-400 hover:bg-gray-100 p-2"
-                  >
-                    <Menu className="h-6 w-6 text-gray-800" />
+                              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="md:hidden">
+                  <Menu className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">

@@ -52,7 +52,7 @@ LinKnote 계정 삭제를 요청합니다.
               </nav>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden sm:flex">
+                  <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 hidden md:flex">
                     <Globe className="h-4 w-4 mr-2" />
                     <span className="hidden sm:inline">한국어</span>
                   </Button>
@@ -81,12 +81,8 @@ LinKnote 계정 삭제를 요청합니다.
               {/* Mobile Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button 
-                    variant="outline" 
-                    size="default" 
-                    className="block lg:hidden bg-white border-2 border-gray-400 hover:bg-gray-100 p-2"
-                  >
-                    <Menu className="h-6 w-6 text-gray-800" />
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
