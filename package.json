@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
+    "postbuild": "cp public/.nojekyll dist/.nojekyll && cp -f public/app-ads.txt dist/app-ads.txt && cp -f public/ads.txt dist/ads.txt && cp -f public/robots.txt dist/robots.txt && find dist -name '*.txt' -type f ! -name 'app-ads.txt' ! -name 'ads.txt' ! -name 'robots.txt' -delete",
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start"

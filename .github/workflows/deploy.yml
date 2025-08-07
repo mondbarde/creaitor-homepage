@@ -36,14 +36,16 @@ jobs:
       - name: Build with Next.js
         run: pnpm run build
         
-      - name: Ensure app-ads.txt is preserved
+      - name: Verify static files
         run: |
-          # 모든 .txt 파일 제거 (app-ads.txt와 ads.txt 제외)
-          find dist -name "*.txt" -type f ! -name "app-ads.txt" ! -name "ads.txt" -delete
-          # public 폴더의 txt 파일들을 dist로 직접 복사 (덮어쓰기)
-          cp -f public/app-ads.txt dist/app-ads.txt
-          cp -f public/ads.txt dist/ads.txt
-          echo "app-ads.txt and ads.txt preserved successfully"
+          echo "=== Checking static files ==="
+          ls -la dist/ | grep -E "\.txt|\.nojekyll" || echo "No txt or .nojekyll files found"
+          echo ""
+          echo "=== app-ads.txt content ==="
+          cat dist/app-ads.txt
+          echo ""
+          echo "=== File type check ==="
+          file dist/app-ads.txt
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
