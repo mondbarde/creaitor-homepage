@@ -5,11 +5,15 @@
       "headers": [
         {
           "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
+          "value": "text/plain"
         },
         {
-          "key": "X-Content-Type-Options",
+          "key": "X-Content-Type-Options", 
           "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
     },
@@ -18,23 +22,26 @@
       "headers": [
         {
           "key": "Content-Type",
-          "value": "text/plain; charset=utf-8"
+          "value": "text/plain"
         },
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
         }
       ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/app-ads.txt",
-      "destination": "/app-ads.txt"
     },
     {
-      "source": "/ads.txt",
-      "destination": "/ads.txt"
+      "source": "/robots.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain"
+        }
+      ]
     }
   ]
 }
