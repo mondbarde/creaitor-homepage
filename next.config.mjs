@@ -9,8 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
-  distDir: 'dist',
+  // output: 'export', // Vercel에서는 이 설정이 필요 없음
+  // distDir: 'dist', // Vercel 기본 설정 사용
   trailingSlash: false,
 }
 
