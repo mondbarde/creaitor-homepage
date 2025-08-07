@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# AdMob app-ads.txt reference
+# app-ads.txt file location: /app-ads.txt
