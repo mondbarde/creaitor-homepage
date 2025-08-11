@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button"
+import { AppStoreBadge, GooglePlayBadge } from "@/components/app-badges"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
@@ -124,21 +125,12 @@ export default function LinknnotePage() {
             あなたのデジタルライフをより体系的にしましょう。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-purple-600 hover:bg-purple-700 shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              App Storeでダウンロード
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white/80 backdrop-blur-sm hover:bg-white"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              Google Playで入手
-            </Button>
+            <a href="https://apps.apple.com/kr/app/linknote/id6747297830" target="_blank" rel="noopener noreferrer" aria-label="App Store">
+              <AppStoreBadge className="h-10 w-auto" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=my.linknote.app" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+              <GooglePlayBadge className="h-10 w-auto" />
+            </a>
           </div>
         </div>
       </section>
@@ -274,13 +266,12 @@ export default function LinknnotePage() {
             無料でダウンロードして、よりスマートな情報管理体験を始めましょう。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-white text-purple-600 hover:bg-gray-100"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              無料ダウンロード
-            </Button>
+            <a href="https://apps.apple.com/kr/app/linknote/id6747297830" target="_blank" rel="noopener noreferrer" aria-label="App Store">
+              <AppStoreBadge className="h-12 w-auto" />
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=my.linknote.app" target="_blank" rel="noopener noreferrer" aria-label="Google Play">
+              <GooglePlayBadge className="h-12 w-auto" />
+            </a>
           </div>
         </div>
       </section>
@@ -304,13 +295,13 @@ export default function LinknnotePage() {
               <h4 className="font-semibold mb-4">アプリダウンロード</h4>
               <ul className="space-y-2 text-sm text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition-colors flex items-center">
+                  <a href="https://apps.apple.com/kr/app/linknote/id6747297830" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center">
                     <Smartphone className="h-4 w-4 mr-2" />
                     iOS App Store
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors flex items-center">
+                  <a href="https://play.google.com/store/apps/details?id=my.linknote.app" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center">
                     <Smartphone className="h-4 w-4 mr-2" />
                     Google Play Store
                   </a>
