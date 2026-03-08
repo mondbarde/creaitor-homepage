@@ -32,6 +32,7 @@ export default function AlllioHeader({ lang }: { lang: Lang }) {
               <Link href={`${prefix}/pricing`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">{t.nav.pricing}</Link>
               <Link href={`${prefix}/privacy`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">{t.nav.privacy}</Link>
               <Link href={`${prefix}/terms`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">{t.nav.terms}</Link>
+              <Link href={`${prefix}/account-deletion`} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">{t.nav.accountDeletion}</Link>
             </nav>
 
             <DropdownMenu>

@@ -20,6 +20,12 @@ export default function HomePage() {
             <div className="flex items-center space-x-4">
               <nav className="hidden lg:flex space-x-6">
                 <a
+                  href="/alllio"
+                  className="text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  Alllio
+                </a>
+                <a
                   href="/linknote"
                   className="text-gray-600 hover:text-blue-600 transition-colors"
                 >
@@ -40,6 +46,11 @@ export default function HomePage() {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end">
+                  <DropdownMenuItem asChild>
+                    <a href="/alllio" className="flex items-center w-full">
+                      Alllio
+                    </a>
+                  </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <a href="/linknote" className="flex items-center w-full">
                       Linknote
